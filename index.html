@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Web site</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMA1swpO2wzS1uTz4rF/NBr6L9I5PyLuk3A3fZ" crossorigin="anonymous">
+     <link rel="stylesheet" href="sryle.css">
+
+</head>
+
+<body>
+    <main>
+        <!--  navar section start -->
+        <section class="w-11/12 mx-auto py-3">
+            <nav class="flex justify-between items-center">
+                <div class="flex gap-2">
+                    <img src="images/logo.webp" alt="">
+                    <h1>Peddy</h1>
+                </div>
+                <div class="flex gap-3 ">
+                    <h1>Home </h1>
+                    <h1>Shope</h1>
+                    <h1>Contact</h1>
+                </div>
+                <div class="border-neutral-200">
+                    <img src="https://img.icons8.com/?size=32&id=22396&format=png" alt="">
+                </div>
+            </nav>
+
+        </section>
+        <!--  navar section End -->
+
+        <!-- Banner section Start -->
+
+        <section class="w-11/12 mx-auto py-3 mt-10">
+
+            <div class="text-center">
+                <p>Bringing Families Together ❤️‍🔥</p>
+                <div class="font-bold text-4xl mt-2">
+                    <h1>
+                        Your Path to Adoption <br> Starts Here</h1>
+                </div>
+
+                <div class="mt-4">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                </div>
+                <div class="mt-3">
+                    <button id="scrollButton"class="btn bg-cyan-700">View More</button>
+                </div>
+            </div>
+
+
+
+
+            <div class="card lg:card-button ">
+                <figure>
+                    <img src="images/pet.webp" alt="Album" />
+                </figure>
+                <div class="card-body text-center">
+                    <h2 class=" font-bold text-4xl text-center">Adopt Your Best Friend</h2>
+                    <p class="mt-3">It is a long established fact that a reader will be distracted by the readable
+                        content of a <br> page when looking at its layout. The point of using Lorem Ipsum is that it has
+                        a.</p>
+                </div>
+            </div>
+
+        </section>
+        <!-- Banner section Start -->
+    </main>
+   
+
+ 
+
+    <!--  Dynamic section start -->
+      
+    <!--  button section start -->
+
+
+    <nav id="btnSection" class="py-6 px-3 flex gap-10 justify-evenly"></nav>
+
+    <!--  button section End -->
+
+    <section>
+        <div class="">
+            <h1 class="flex justify-start text-2xl">Best for</h1>
+             <div id="sortButtons" class="flex justify-end">
+                <button     onclick="sortPetsByPriceLowToHigh()"   class="btn  btn-lg">Shorted by</button>
+             </div>
+        </div>
+
+      
+    </section>
+        <!-- spi start -->
+    <div id="loader" class="hidden text-center mt-3 text-4xl ">
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-sm"></span>
+        <span class="loading loading-bars loading-md"></span>
+        <span class="loading loading-bars loading-lg"></span>
+    </div>
+
+
+    <!-- <div id="loader" class="hidden">Loading...</div> -->
+
+  <!-- spi start -->
+
+    <section id="target" class="grid grid-cols-4 px-3">
+
+        <div id="petsImg" class="  col-span-3 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-2 py-10"></div>
+
+
+         <div id="likeBtn"
+
+            class="  bg-yellow-50 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 gap-2 py-10  shadow-lg"> 
+        
+        </div> 
+
+    </section>
+
+    <!--  Dynamic section End -->
+
+
+   <!--  modal start -->
+ <!-- Open the modal using ID.showModal() method -->
+<button  id="showModals" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+
+
+
+<dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+         <div id="modal-content">
+                  
+
+         </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+            <div class="block">
+            
+              <button class="btn btn-block">close</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+
+      <!--  modal end -->
+
+<!-- count modal start -->
+<!-- 
+ <input type="checkbox" id="my-modal" class="modal-toggle" />
+    <label for="my-modal" class="modal cursor-pointer">
+        <label class="modal-box relative" for="">
+            <h2 class="text-lg font-bold">Countdown Timer</h2>
+            <p class="py-4 text-center text-3xl" id="countdown">3</p>
+      
+        </label>
+    </label> -->
+    
+    
+    <dialog id="customModal" class="modal">
+      <div id="modal-content" class="modal-content">
+          <!-- Dynamic content will be inserted here -->
+      </div>
+  </dialog>
+  
+<!-- count modal end -->
+      <!-- footer section start -->
+
+      
+
+    <footer class="footer bg-yellow-100 text-base-content p-10">
+        <nav>
+            <div class="flex gap-2">
+                <img src="/images/logo.webp" alt="">
+                <h6 class="footer-title">Peddy</h6>
+            </div>
+
+          <h6 class="footer-title"></h6>
+          <a class="link link-hover">Location: av. Washington 165, NY CA 54003
+        </a>
+          <a class="link link-hover">Phone: +31 85 964 47 25
+        </a>
+          <a class="link link-hover">Email: info@yourdomain.com
+        </a>
+          <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+
+          
+           <div class="text-3xl">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-x"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a></div>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Useful Links</h6>
+          <a class="link link-hover">Home</a>
+          <a class="link link-hover">About Us</a>
+          <a class="link link-hover">Animals</a>
+          <a class="link link-hover">Foundation</a>
+          <a class="link link-hover">Contact</a>
+        </nav>
+        
+        <form>
+          <h6 class="footer-title">Newsletter</h6>
+          <fieldset class="form-control w-80">
+            <label class="label">
+              <span class="label-text">Drop a Maessage</span>
+            </label>
+            <div class="join mr-5-3">
+              <input 
+                type="text"
+                placeholder="Enter Your email"
+                class="input input-bordered join-item" />
+                
+              <br>
+            </div>
+               <div class="mt-2">
+                <button class="btn btn-wide  bg-blue-700 join-item">Subscribe</button>
+               </div>
+          </fieldset>
+        </form>
+      </footer>
+      <!-- footer section end -->
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

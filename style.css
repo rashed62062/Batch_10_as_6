@@ -1,0 +1,24 @@
+.modal {
+    /* Styles for your modal */
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.modal-content {
+    /* Styles for the content inside the modal */
+    text-align: center;
+}
+
+/* Hide the default close button if using a dialog element */
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: customize backdrop */
+}
+
+dialog::part(close) {
+    display: none; /* This will hide the default close button */
+}

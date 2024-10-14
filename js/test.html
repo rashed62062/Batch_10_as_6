@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+<body>
+  
+
+  
+
+  <div id="loader" class="hidden">Loading...</div>
+  <div id="btnSection"></div>
+  
+  <!-- Sorting buttons -->
+  <div>
+      <button onclick="sortPetsByPriceLowToHigh()" class="btn">Sort by Price: Low to High</button>
+      <button onclick="sortPetsByPriceHighToLow()" class="btn">Sort by Price: High to Low</button>
+  </div>
+  
+  <div id="petsImg" class="grid"></div>
+
+   <script>
+
+let petsData = []; // Array to store pet data
+
+// Function to load pet categories (can be left empty if not needed)
+const buttonCategory = () => {
+  // Your existing category loading code here
+};
+
+// Function to load pets data
+const loadPets = () => {
+    const loader = document.getElementById("loader");
+    loader.classList.remove("hidden"); 
+
+    fetch("https://openapi.programming-hero.com/api/peddy/pets")
+        .then((res) => res.json())
+        .then((data) => {
+            petsData = data.pets; // Store fetched pets data
+            displayPets(petsData); // Initial display of pets
+            loader.classList.add("hidden"); // Hide loader
+        })
+        .catch((error) => {
+            console.log(error);
+            loader.classList.add("hidden"); // Hide loader in case of error
+        });
+};
+
+// Function to display pets
+const displayPets = (pets) => {
+    const petsContainer = document.getElementById("petsImg");
+    petsContainer.innerHTML = ""; // Clear existing pet cards
+
+    if (pets.length === 0) {
+        petsContainer.innerHTML = `
+            <div>No pets available</div>
+        `;
+        return;
+    }
+
+    pets.forEach((pet) => {
+        const PetsCard = document.createElement("div");
+        PetsCard.classList = "card bg-base-100 shadow-xl gap-5";
+
+        PetsCard.innerHTML = `
+            <figure class="px-5 pt-5">
+                <img src="${pet.image}" alt="${pet.pet_name}" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+                <h2 class="text-3xl font-bold">${pet.pet_name}</h2>
+                <p>Breed: ${pet.breed}</p>
+                <p>Price: $${pet.price}</p>
+                <button onclick="modalDetails('${pet.id}')">Details</button>
+            </div>
+        `;
+
+        petsContainer.append(PetsCard);
+    });
+};
+
+// Function to sort pets by price in ascending order
+const sortPetsByPriceLowToHigh = () => {
+    const sortedPets = [...petsData].sort((a, b) => a.price - b.price); // Sort ascending
+    displayPets(sortedPets); // Display the sorted pets
+};
+
+// Function to sort pets by price in descending order
+const sortPetsByPriceHighToLow = () => {
+    const sortedPets = [...petsData].sort((a, b) => b.price - a.price); // Sort descending
+    displayPets(sortedPets); // Display the sorted pets
+};
+
+// Load pets data when the page loads
+window.onload = loadPets;
+
+// Call category function if needed
+// buttonCategory();
+
+
+   </script>
+</body>
+</html>
+
